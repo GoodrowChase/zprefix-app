@@ -1,12 +1,8 @@
 import { useState, useContext } from "react"
-import { Link, useNavigate } from "react-router-dom";
 import { appContext } from "./App";
 
-
-
 export const Login = () => {
-  const navigate = useNavigate();
-  const {setUserData, setLoggedIn} = useContext(appContext);
+  const {setUserData, setLoggedIn, navigate} = useContext(appContext);
   const [formDataMissing, setFormDataMissing] = useState(false);
   const [formDataWrong, setFormDataWrong] = useState(false);
   const [formData, setFormData] = useState({
@@ -43,7 +39,7 @@ export const Login = () => {
         res.json().then(user_data => {
             setLoggedIn(true);
             setUserData(user_data);
-            navigate('/')
+            navigate('/profile')
           })
       } else if (res.status === 400) {
         setFormDataWrong(true);
@@ -53,17 +49,18 @@ export const Login = () => {
   
 
   return (
-    <div>
+    <div className="login-form">
       <h2>Log In</h2>
+      {formDataWrong ? <span>username/password incorrect.</span> : <></>}
       <form onSubmit={handleSubmit}>
-        <p>Username</p>
+        <label>Username</label>
         <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder={formDataMissing ? '**Required' : ''}/>
-        <p>Password</p>
+        <label>Password</label>
         <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder={formDataMissing ? '**Required' : ''}/>
         <button type="submit">Sign In</button>
       </form>
       <p>New here?</p>
-      <Link to="/register">Create account</Link>
+      <button onClick={() => navigate("/register")}>Create account</button>
     </div>
   )
 }

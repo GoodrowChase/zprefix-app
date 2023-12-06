@@ -1,7 +1,8 @@
-  import { useState } from "react"
-  import { Link } from "react-router-dom";
+  import { useState, useContext } from "react"
+  import { appContext } from "./App";
 
 export const Register = () => {
+  const {navigate} = useContext(appContext);
   const [formDataMissing, setFormDataMissing] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
   const [formData, setFormData] = useState({
@@ -52,7 +53,7 @@ export const Register = () => {
   return (
     <>
     {!accountCreated ?
-      <div>
+      <div className="login-form">
         <h2>Create An Account</h2>
         <form onSubmit={handleSubmit}>
           <p>First Name</p>
@@ -67,12 +68,12 @@ export const Register = () => {
           <button type="submit">Create Account</button>
         </form>
         <p>Already have an account?</p>
-        <Link to="/login">Sign In</Link>
+        <button onClick={() => navigate("/login")}>Sign In</button>
       </div>
     : 
-      <div>
-        <p>Account Created!</p>
-        <Link to="/login">Go To Sign In</Link>
+      <div className="login-form">
+        <h2>Account Created!</h2>
+        <button onClick={() => navigate("/login")}>Go To Sign In</button>
       </div>}
     </>
   )

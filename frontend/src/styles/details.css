@@ -1,0 +1,91 @@
+.details-container {
+  color: white;
+  background-color: rgb(32, 32, 32);
+}
+
+.details-head {
+  position: relative;
+}
+
+.details-head h2{
+  display: flex;
+  justify-content: center;
+}
+
+.details-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-desc p {
+  text-align: center;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.edit-buttons button{
+  margin: 15px;
+  font-size: 25px;
+  width: 142px;
+}
+
+
+.close-details-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1000px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  border: 0;
+  font-size: 30px;
+}
+
+.close-details-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 0;
+  font-size: 30px;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.ReactModal__Content {
+  background-color: rgb(32, 32, 32) !important; 
+  max-width: 600px !important;
+  margin: auto;
+}
+
+.item-description {
+  height: 85.3px;
+}
+
+.item-quantity {
+  margin-top: 0;
+  text-align: center;
+}
+
+.details-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-head div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}
+
+.description-input {
+  width: 100%;
+}

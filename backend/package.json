@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "knexfile.js",
   "scripts": {
+    "setup": "npx knex migrate:rollback && npx knex migrate:latest && npx knex seed:run",
     "start": "nodemon server.js"
   },
   "author": "",
